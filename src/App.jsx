@@ -165,68 +165,49 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-     
-      
-      {/*<section className="w-auto mx-auto  py-24  ">
-        <div className="relative overflow-hidden bg-[linear-gradient(90deg,rgba(30,64,175,0.2)_0%,rgba(173,70,255,0.2)_100%)] rounded-[16px] p-[48px] md:p-20 text-center items-center w-[1232px] h-[270px]">
-          <div className="absolute top-0 right-0 -translate-y-12 translate-x-12 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-          <h2 className="text-[35.4px] text-[#E8EAF0] md:text-[35.4px] font-bold mb-6 relative z-10  max-w-[653px] mx-auto leading-[40px] font-['Inter']">Ready to Streamline Your Laboratory?</h2>
-          <p className="text-[#94A3B8] text-[18.6px] mb-10 max-w-[646px] relative z-10 font-normal flex justify-center text-[#94A3B8] leading-tight"style={{weight:'inter,sana-serif',fontStyle:'regular'}}>
-            Join ESI-GM today and transform how you manage laboratory equipment.
-          </p>
-          <button className="relative z-10 w-[211px] h-[56px] px-[32px] py-[16px] bg-[#1E40AF] hover:bg-[#1e3a8a] text-white rounded-[12px] text-[16px]  transition flex items-center justify-center gap-[8px] shrink-0 active:scale-95 mx-auto  "style={{fontFamily:'inter,sans-serif',weight:'400',fontSize:'14.9px'}}>
-            Get Started Now <ArrowRight size={20} />
-          </button>
-        </div>
-      </section>*/}
-      <section
-  id="more"
-  className="app-container my-16 rounded-3xl 
-  bg-gradient-to-r from-blue-950 via-blue-950 to-fuchsia-950 
-  py-16 px-6 md:px-12"
->
-  <div className="flex flex-col items-center justify-center text-center gap-6">
+      <section id="more" className="mx-auto my-20 rounded-[16px] bg-[linear-gradient(90deg,rgba(30,64,175,0.2)_0%,rgba(173,70,255,0.2)_100%)] py-[43px] px-5 md:px-12 w-[90%] max-w-[1232px] text-center flex flex-col items-center justify-center relative overflow-hidden shadow-2xl">
+       <div className="flex flex-col items-center justify-center text-center gap-6 ">
     
-    <h2 className="text-white text-3xl md:text-5xl font-bold">
-      {title}
-    </h2>
+        <h2 className="text-[#E8EAF0] text-3xl md:text-[33px] font-bold mb-[-2px]">
+        {title}
+        </h2>
 
-    <p className="text-gray-300 text-lg md:text-xl max-w-2xl">
-      {desc}
-    </p>
+        <p className="text-gray-300 text-lg md:text-[18px] max-w-2xl">
+        {desc}
+        </p>
 
-    <button
-      onClick={getStarted}
-      className="group flex items-center gap-3 
-      bg-blue-600 hover:bg-blue-700 
-      transition-all duration-300 
-      py-3.5 px-9 rounded-xl 
-      text-white font-bold shadow-lg"
-    >
-      Get Started
-     <ArrowRight size={20} />
-    </button>
+        <button
+        onClick={getStarted}
+        className="group flex items-center gap-3 bg-[#1E40AF] hover:bg-blue-700 transition-all duration-300 py-3.5 px-9 rounded-xl text-[#FFFFFF] font-inter shadow-lg">
+        Get Started new
+        <ArrowRight size={20} />
+        </button>
 
-  </div>
-  </section>
+       </div>
+     </section>
      
-     <footer className="w-full mx-auto px-6 md:px-16 py-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-500 text-sm">
+     <footer className="w-full max-w-[1440px] mx-auto px-6 md:px-[80px] py-[10px] border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
   
-  <div className="flex items-center gap-2">
-    <img
-      src="/logo.png"
-      alt="logo"
-      className="w-10 h-10 rounded-full"
-    />
-    <span className="font-semibold text-gray-300">
-      ESI-GM
-    </span>
-  </div>
+      <div className="flex items-center gap-3">
+        <img
+         src="/logo.png"
+         alt="logo"
+         className="w-8 h-8 rounded-full opacity-80" 
+         />
+        <div className="flex flex-col justify-center items-start leading-tight mt-3">
+         <span className="font-inter text-gray-300 font-semibold text-[14px]">
+          ESI-GM
+         </span>
+         <p className="font-inter text-[#94A3B8] text-[10px] opacity-80">
+          ESI 8 Mai 1945
+         </p>
+        </div>
+     </div>
 
-  <p>© 2024 ESI-GM. All rights reserved.</p>
+      <p className="opacity-70 text-[12px] text-[#94A3B8]">© 2024 ESI-GM. All rights reserved.</p>
 
-</footer>
-    </div>
+ </footer>
+</div>
   );
 };
 

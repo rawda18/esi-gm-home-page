@@ -23,9 +23,9 @@ const fmt = (d) => {
 };
 const today = () => new Date().toISOString().split("T")[0];
 const STATUS_STYLE = {
-  Pending:   "bg-yellow-500/20 text-yellow-400 border border-yellow-500/40",
-  Approved:  "bg-green-500/20  text-green-400  border border-green-500/40",
-  Completed: "bg-blue-500/20   text-blue-400   border border-blue-500/40",
+  Pending:   "bg-yellow-500/20 text-yellow-400 border-1 border-yellow-500/40",
+  Approved:  "bg-green-500/20  text-green-400  border-1 border-green-500/40",
+  Completed: "bg-blue-500/20   text-blue-400   border-1 border-blue-500/40",
 };
 
 

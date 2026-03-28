@@ -28,7 +28,7 @@ export default function Sidebar({ activeLabel }) {
   ];
 
   return (
-    <aside className="w-[255px] h-screen flex-shrink-0 flex flex-col sticky top-0" style={{ background: "var(--card)", borderRight: "1px solid var(--card-border)" }}>
+    <aside className="w-[256px] h-screen flex-shrink-0 flex flex-col sticky top-0" style={{ background: "var(--card)", borderRight: "1px solid var(--card-border)" }}>
       {/* Logo Section */}
       <div className="px-4 py-4 flex items-center " style={{ borderBottom: "1px solid var(--card-border)" }}>
         <div className="flex items-center gap-1">

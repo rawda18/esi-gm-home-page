@@ -51,7 +51,7 @@ export default function CreateProjectModal({ onClose, onCreate }) {
         {/* Title */}
         <h2
           className="text-2xl font-bold"
-          style={{ color: "var(--title-custom, #e2e8f0)" }}
+          style={{ color: "var(--text-titles)" }}
         >
           Create New Project
         </h2>
@@ -60,7 +60,7 @@ export default function CreateProjectModal({ onClose, onCreate }) {
         <div className="flex flex-col gap-1">
           <label
             className="text-sm font-medium"
-            style={{ color: "var(--small-custom, #94a3b8)" }}
+            style={{ color: "var(--text-titles)" }}
           >
             Project Name
           </label>
@@ -87,7 +87,7 @@ export default function CreateProjectModal({ onClose, onCreate }) {
         <div className="flex flex-col gap-1">
           <label
             className="text-sm font-medium"
-            style={{ color: "var(--small-custom, #94a3b8)" }}
+            style={{ color: "var(--text-titles)" }}
           >
             Description
           </label>
@@ -100,7 +100,7 @@ export default function CreateProjectModal({ onClose, onCreate }) {
             style={{
               background: "var(--small-custom)",
               border: "1px solid var(--card-border, rgba(255,255,255,0.1))",
-              color: "var(--title-custom, #e2e8f0)",
+              color: "var(--text-title-custom, #e2e8f0)",
             }}
             onFocus={(e) =>
               (e.target.style.borderColor = "#51A2FF")
@@ -116,7 +116,7 @@ export default function CreateProjectModal({ onClose, onCreate }) {
         <div className="flex flex-col gap-1">
           <label
             className="text-sm font-medium"
-            style={{ color: "var(--small-custom, #94a3b8)" }}
+            style={{ color: "var(--text-titles)" }}
           >
             Team Members
           </label>
@@ -135,7 +135,7 @@ export default function CreateProjectModal({ onClose, onCreate }) {
               >
                 <p
                   className="text-sm font-medium"
-                  style={{ color: "var(--title-custom, #e2e8f0)" }}
+                  style={{ color: "var(--text-titles)" }}
                 >
                   {m.name}
                 </p>
@@ -153,13 +153,13 @@ export default function CreateProjectModal({ onClose, onCreate }) {
           <div
             className="rounded-xl p-4 flex flex-col gap-3"
             style={{
-              background: "var(--small-custom)",
+              background: "var(--title-custom)",
               border: "1px solid var(--card-border, rgba(255,255,255,0.08))",
             }}
           >
             <p
               className="text-sm font-medium"
-              style={{ color: "var(--small-custom, #94a3b8)" }}
+              style={{ color: "var(--text-titles)" }}
             >
               Add Team Member
             </p>
@@ -189,7 +189,7 @@ export default function CreateProjectModal({ onClose, onCreate }) {
                   background: "var(--card, #0f1b2d)",
                   border:
                     "1px solid var(--card-border, rgba(255,255,255,0.1))",
-                  color: "var(--title-custom, #e2e8f0)",
+                  color: "var(--text-titles, #e2e8f0)",
                 }}
                 onFocus={(e) => (e.target.style.borderColor = "#51A2FF")}
                 onBlur={(e) =>

@@ -58,7 +58,7 @@ export default function MyProject(){
   return(
     <main className="flex h-screen  overflow-hidden "style={{ background: "var(--background)" ,fontFamily: "Inter"}}>
        {/*SIdebare*/}
-       <Sidebare activeLabel="MyProjects" />
+       <Sidebare activeLabel="My Projects" />
        {/* Header */}
         <main className="flex-1 overflow-y-auto p-8">
           <div className="flex items-start justify-between mb-10 w" >

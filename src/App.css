@@ -1,45 +1,161 @@
-body {
-  font-family: 'Inter', sans-serif;
-}
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-accent: var(--accent);
+
+  --color-primary-gradient: var(--primary-gradient);
+  --color-secondary-gradient: var(--secondary-gradient);
+
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
+  --font-sans: Inter, sans-serif;
+}
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #020817;
+
+    --card: #f8fafc;
+    --card-foreground: #0f172a;
+
+    --primary: #1d4ed8;
+    --primary-foreground: #ffffff;
+
+    --accent: #ec4899;
+
+    --muted: #E2E8F0;
+    --border: #1E3A8A;
+
+    --primary-gradient: #6366F133;
+    --secondary-gradient: #AD46FF33;
+
+    --gradient-start: #FFFFFF;
+    --gradient-mid: #F8FAFC;
+    --gradient-end: #F1F5F9;
+
+    --foreground: #020817;
+    --card: #ffffff;
+    --border: #e2e8f0;
+
+    --text-small: #64748B;
+    --text-titles: #0F172A;
+    --card-border: #E2E8F0;
+    --icon-bg: rgba(99, 102, 241, 0.1);
+    --btn-get-started: #6366F1;
+    --btn-signin-bg: #F8FAFC;
+    --background: #FFFFFF;
+    --btn-register: #6366F1;
+    --btn-signin-text: #000000;
+    --bg-ready-section: linear-gradient(90deg, rgba(99, 102, 241, 0.1) 0%, rgba(173, 70, 255, 0.1) 100%);
+    --app-bg: linear-gradient(135deg, rgba(15, 15, 16, 0.1) 0%, #FFFFFF 50%, #FFFFFF 100%);
+    --main-text: #1f2937
   }
+.dark {
+    --background: #020817;
+    --foreground: #f8fafc;
+
+    --card: #0f172a;
+    --card-foreground: #f1f5f9;
+
+    --primary: #1E40AF;
+    --primary-foreground: #ffffff;
+
+    --accent: #f472b6;
+
+    --muted: #94a3b8;
+    --border: #1e293b;
+
+    --primary-gradient: #1E40AF33;
+    --secondary-gradient: #AD46FF33;
+
+    --gradient-start: #020817;
+    --gradient-mid: #0A1128;
+    --gradient-end: #020817;
+
+    --text-small: #94A3B8;
+    --text-titles: #E8EAF0;
+    --card-border: #1E40AF;
+    --icon-bg: rgba(30, 64, 175, 0.2);
+    --btn-get-started: linear-gradient(90deg, #1E40AF 0%, #1E3A8A 50%, #172554 100%);
+    --btn-signin-bg: #0A1128;
+    --btn-register: #1E40AF;
+    --btn-signin-text: #ffffff;
+    --bg-ready-section: linear-gradient(90deg, rgba(99, 102, 241, 0.2) 0%, rgba(173, 70, 255, 0.2) 100%);
+    --app-bg: linear-gradient(330deg,rgba(19, 25, 46, 0.05) 20%, rgba(28, 40, 76, 0.4) 50%, #25396c 100%);
+    --main-text: #f3f4f6;
+  }}  
+html {
+  scroll-behavior: smooth;
 }
 
-.App-header {
-  background-color: #282c34;
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    @apply font-sans antialiased transition-colors duration-300;
+  }
+
+  .app-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}  
+
+@layer components {
+  .dynamic-bg{
+    background:linear-gradient(135deg,var(--gradient-start) 0%,var(--gradient-mid) 50%, var(--gradient-end) 100%);
+     transition: background 0.3s ease;
+  }
+  .dynamic-bg {
+  background: var(--background);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: all 0.3s ease;
+  }
+  .text-small-custom {
+  color: var(--text-small)!important;
+  }
+  .text-title-custom {
+  color: var(--text-titles)!important;
+  }
+  .card-custom {
+  border: 1px solid var(--card-border)!important;
+  
+  }
+  .btn-get-started {
+  background: var(--btn-get-started)!important;
+  color: white !important;
+  }
+  .btn-signin {
+  background: var(--btn-signin-bg)!important;
+  border: 1px solid var(--card-border) ;
+  color: var(--btn-signin-text) !important;
+  }
+  .btn-register {
+  background-color: var(--btn-register)!important;
+  color: white !important; /* الكتابة دايما بيضاء باش تبان فوق الأزرق */
+  transition: all 0.3s ease;
+  }
+  .btn-register:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  }
+  .bg-ready-custom {
+    background: var(--bg-ready-section) !important;
+    border: 1px solid var(--card-border); /* اختيارية: تعطي تحديد خفيف للقسم */
+  }
+  .glass-card {
+  background: var(--app-bg) !important;
+  backdrop-filter: blur(8px);
+}
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.navbar-bg-dark {
-  background-color: #121212;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}

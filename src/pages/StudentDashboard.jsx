@@ -33,10 +33,10 @@ const STATUS_STYLE = {
 export default function StudentDashboard() {
   const [active, setActive] = useState("Dashboard");
 
-  // توحيد مسميات الأيقونات من ملف Icon.js
+  // Icon.js
   
   const stats = [
-    { label: "My Projects",    value: 2, icon: Icon.projects,      iconColor: "#6366F1", iconBg: "rgba(99,102,241,0.15)"  },
+    { label: "My Projects",    value: 2, icon: Icon.projects, iconColor: "#6366F1", iconBg: "rgba(99,102,241,0.15)"  },
     { label: "Total Requests", value: 3, icon: Icon.requests, iconColor: "#A855F7", iconBg: "rgba(168,85,247,0.15)"  },
     { label: "Approved",       value: 1, icon: Icon.check,    iconColor: "#22C55E", iconBg: "rgba(34,197,94,0.15)"   },
     { label: "Pending",        value: 1, icon: Icon.clock,    iconColor: "#EAB308", iconBg: "rgba(234,179,8,0.15)"   },
@@ -62,7 +62,7 @@ export default function StudentDashboard() {
               <div key={s.label} className="rounded-2xl p-4 glass-card border-1 border-[#1E40AF4D] w-[200px] h-[109px]">
                 <div className="flex items-center justify-between mb-3 ">
                   <p className="text-xs text-title-custom ">{s.label}</p>
-                  <div className="p-1.5 rounded-lg" style={{ background: s.iconBg, color: s.iconColor }}>
+                  <div className="p-1.5 rounded-lg" style={{color: s.iconColor }}>
                     {s.icon}
                   </div>
                 </div>

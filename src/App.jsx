@@ -6,6 +6,7 @@ import StudentDashboard from'./pages/StudentDashboard';
 import MyProject from'./pages/Myproject';
 import './App.css';
 import CreateProjectModal from'./pages/CreateProjectModal';
+import InputOutput from './pages/inputOutput';
 function App() {
   return (
     <ThemeProvider>
@@ -13,9 +14,8 @@ function App() {
        <Routes>
         <Route path="/"element={<LandingPage />}/>
         <Route path="/StudentDashboard"element={<StudentDashboard/>}/>
-          <Route path="/MyProject"element={<MyProject/>}>
-
-          </Route>
+          <Route path="/MyProject"element={<MyProject/>}></Route>
+        <Route path="/InputOutput"element={<InputOutput/>}/>
        </Routes>
       </BrowserRouter>
     </ThemeProvider>

@@ -61,6 +61,7 @@
     --main-text: #1f2937;
     --chevron:#64748B;
     --butt-filter:#eeeff0;
+    --bk:#f5eac9;
   }
 .dark {
     --background: #020817;
@@ -74,7 +75,7 @@
 
     --accent: #f472b6;
 
-    --muted: #94a3b8;
+    --muted: #3d434d;
     --border: #1e293b;
 
     --primary-gradient: #1E40AF33;
@@ -97,6 +98,7 @@
     --main-text: #f3f4f6;
     --chevron: #94A3B8;
     --butt-filter:#1E293B;
+    --bk:#3d351d;
   }}  
 html {
   scroll-behavior: smooth;

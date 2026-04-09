@@ -7,6 +7,7 @@ import MyProject from'./pages/Myproject';
 import './App.css';
 import CreateProjectModal from'./pages/CreateProjectModal';
 import InputOutput from './pages/inputOutput';
+import Maintenance from './pages/Maintenance';
 function App() {
   return (
     <ThemeProvider>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/StudentDashboard"element={<StudentDashboard/>}/>
           <Route path="/MyProject"element={<MyProject/>}></Route>
         <Route path="/InputOutput"element={<InputOutput/>}/>
+        <Route path="/Maintenance"element={<Maintenance/>}/>
        </Routes>
       </BrowserRouter>
     </ThemeProvider>

@@ -16,6 +16,7 @@ export const Icon = {
   plus:      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="2" d="M12 5v14M5 12h14"/></svg>,
   edit:      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>,
   trash:     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="2" d="M20 7H4m0 0l4-4m-4 4l4 4"/><path strokeWidth="2" strokeLinejoin="round" d="M4 17h16m0 0l-4-4m4 4l-4 4"/></svg>,
+  itrash:    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="2" strokeLinejoin="round" d="M4 7h16m0 0l-4-4m4 4l-4 4"/><path strokeWidth="2" d="M20 17H4m0 0l4-4m-4 4l4 4"/></svg>,
   close:     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>,
   chip:      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1" strokeWidth="2"/><path strokeWidth="2" d="M7 9H5M7 12H5M7 15H5M17 9h2M17 12h2M17 15h2M9 7V5M12 7V5M15 7V5M9 19v-2M12 19v-2M15 19v-2"/></svg>,
   package:   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="2" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>,
@@ -29,5 +30,6 @@ export const Icon = {
   overdue:<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="1.5"  strokeLinecap="round" strokeLinejoin="round" d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" /><path strokeWidth="1.5"  strokeLinecap="round" d="M12 9v4M12 17h.01" /></svg>,
   filter: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="1.5" d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z" /></svg>,
   chevron: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="1.5" d="M6 9l6 6 6-6" /></svg>,
-  bk:      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="1.5"strokeLinecap="round"  /><path strokeWidth="1.5" strokeLinejoin="round" d="M16 2v4M8 2v4M3 10h18" /></svg>
+  bk:      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="1.5"strokeLinecap="round"  /><path strokeWidth="1.5" strokeLinejoin="round" d="M16 2v4M8 2v4M3 10h18" /></svg>,
+  itrending: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 17l4-4 4 4 4-5 4-4"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 8h4v4"/></svg>,
 };

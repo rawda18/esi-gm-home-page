@@ -75,7 +75,7 @@ export default function AddMaintenanceModal({ onClose, onSubmit, materials }) {
         <div className="flex justify-end gap-3">
           <button
             onClick={onClose}
-            className="px-5 py-2 rounded-xl border border-[var(--br)] text-sm text-small-custom hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+            className="px-5 py-2 rounded-xl border-1 border-[var(--br)] text-sm text-small-custom hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
           >
             Cancel
           </button>

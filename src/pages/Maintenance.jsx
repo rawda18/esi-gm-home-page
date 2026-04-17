@@ -46,7 +46,7 @@ export default function Maintenance(){
              ))}
             </div>
             {/* Maintenance History */}
-            <div className="rounded-xl border border-[] bg-[var(--card)]">
+            <div className="rounded-xl border-1 border-[var(--br)] bg-[var(--card)]">
             {/* Table header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-[#1E40AF4D]">
               <div className="flex items-center gap-2">

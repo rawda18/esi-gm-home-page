@@ -25,6 +25,7 @@ export default function Sidebare2({ activeLabel }){
     {label:"Dashboard",        icon: Icon.dashboard, path: "/StorekeeperDashboard"},
     {label:"Inventory",        icon: Icon.browse,    path: "/inventory"},
     {label:"QR Scanner",       icon: Icon.qr_scanner, path: "/scanner"},
+    {label:"Transfers",        icon: Icon.itrash,      path: "/Transfers"},
     {label:"Material Outputs", icon: Icon.trash,      path: "/InputOutput"},
     {label:"Maintenance",      icon: Icon.maintenance, path: "/Maintenance"},
    ];

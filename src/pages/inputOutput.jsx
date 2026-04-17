@@ -47,9 +47,9 @@ export default function InputOutput(){
     { key: "status", label: "Status", value: statusFilter, options: [".....", "......"], set: setStatusFilter },
   ];
   const filtered = tableData.filter((row) => {
-    const matchLab    = labFilter    ? row.lab.includes(labFilter)       : true;//hna n7aws0 ida kan wach 5ayart kayan wla n0 
+    const matchLab    = labFilter    ? row.lab.includes(labFilter)       : true;
     const matchStatus = statusFilter ? row.status === statusFilter        : true;
-    const matchSearch = search? [row.material, row.student, row.lab].some((f) =>f.toLowerCase().includes(search.toLowerCase())): true;//hna y7awas 3liha f 3 blayas 
+    const matchSearch = search? [row.material, row.student, row.lab].some((f) =>f.toLowerCase().includes(search.toLowerCase())): true;
     return matchLab && matchStatus && matchSearch;
   });
   function Badge({ label, map }) {
@@ -65,19 +65,18 @@ export default function InputOutput(){
   );
   };
   
- 
   return(
    <div className="flex dynamic-bg transition-colors duration-300" style={{ fontFamily: "Inter" }}>
     <Sidebare2 activeLabel="Material Outputs"/>
-    <main className="flex-1 relative overflow-y-auto p-8">
+    <main className="flex-1 relative overflow-y-auto p-4 sm:p-6 lg:p-8">
       <div className="absolute top-6 right-8 z-60 ">
       <ThemeToggel/>
       </div>
        {/* Page header */}
       <div className="w-full mt-[45px] border-t border-solid border-[var(--card-border)]"></div>
       <div className="w-full mb-5">
-        <div className="flex items-center justify-between w-full">
-          <div className=" whitespace-nowrap">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-3">
+          <div className="whitespace-nowrap">
              <h2 className="text-title-custom text-[30px] mt-3">Material Outputs</h2>
              <p className="text-small-custom text-sm mt-[-9px]">Track all materials leaving and entering laboratories</p>
           </div>
@@ -87,27 +86,27 @@ export default function InputOutput(){
             </button>
           </div>
         </div>
-           {/* ── Stat Cards ── */}
-       <div className="grid grid-cols-5 gap-4 mb-8  ">
-            {stats.map((s) => (
-              <div key={s.label} className="rounded-2xl p-4 glass-card border-1 border-[#1E40AF4D] w-[150px] h-[103px]">
-                <div className="flex items-center justify-between mb-3 ">
-                  <p className="text-xs text-small-custom whitespace-nowrap ">{s.label}</p>
-                  <div className="p-1.5 rounded-lg mt-[-11px]" style={{ background: s.iconBg, color: s.iconColor }}>
-                    {s.icon}
-                  </div>
-                </div>
-                <p className="text-3xl font-bold mt-[-20px]"style={{ color: s.iconColor }}>{s.value}</p>
-              </div>
-            ))}
-        </div>     
+           {/* Stat Cards */}
+       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+  {stats.map((s) => (
+    <div key={s.label} className="rounded-2xl p-3 glass-card border-1 border-[#1E40AF4D] min-h-[90px]">
+      <div className="flex items-center justify-between mb-3">
+        <p className="text-xs text-small-custom whitespace-nowrap">{s.label}</p>
+        <div className="p-1.5 rounded-lg mt-[-11px]" style={{ background: s.iconBg, color: s.iconColor }}>
+          {s.icon}
+        </div>
+      </div>
+      <p className="text-2xl font-bold mt-[-14px]" style={{ color: s.iconColor }}>{s.value}</p>
+    </div>
+  ))}
+</div> 
          {/* Filters */}
         <div className="rounded-xl border-1 border-[#1E40AF4D] bg-[var(--card)] p-4 mb-4">
-          <div className="flex items-center gap-2  gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-3">
             <span className="text-small-custom mt-[-5px] ">{Icon.filter}</span>
             <h2 className="text-xl whitespace-nowrap text-title-custom"> Filters</h2>
           </div>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
              {filters.map((d) => (
              <div key={d.key} className="relative">
                <label className="block text-xs text-small-custom mb-1">{d.label}</label>
@@ -141,10 +140,10 @@ export default function InputOutput(){
                    </div>
               </div>
         </div>
-        {/*table*/}
-        <div className="rounded-xl border-1 border-[#1E40AF4D] overflow-hidden ">
-          <div className="">
-            <table className="w-full ">
+        {/* Table */}
+        <div className="rounded-xl border-1 border-[#1E40AF4D] overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[700px]">
                <thead>
                   <tr className="border-b border-[#1E40AF4D] text-[14px] bg-[var(--butt-filter)]">
                     {["Material","Laboratory","Student/Transfer","Issued","Return","Condition","Status"].map((h) => (
@@ -167,7 +166,7 @@ export default function InputOutput(){
                     filtered.map((row, i) => (
                       <tr
                         key={i}
-                        className="border-b border-[#1E40AF4D] last:border-0  bg-[var(--card)] "
+                        className="border-b border-[#1E40AF4D] last:border-0 bg-[var(--card)]"
                       >
                         <td className="px-4 py-3">
                           <div className="font-medium text-title-custom">{row.material}</div>

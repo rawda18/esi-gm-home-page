@@ -62,6 +62,7 @@
     --chevron:#64748B;
     --butt-filter:#eeeff0;
     --bk:#f5eac9;
+    --br:#E2E8F0;
   }
 .dark {
     --background: #020817;
@@ -99,6 +100,7 @@
     --chevron: #94A3B8;
     --butt-filter:#1E293B;
     --bk:#3d351d;
+    --br:#1E293B;
   }}  
 html {
   scroll-behavior: smooth;

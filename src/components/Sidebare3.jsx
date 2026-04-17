@@ -22,7 +22,7 @@ export default function Sidebare2({ activeLabel }){
 
    // navItems 
    const navItems = [
-    {label:"Dashboard",        icon: Icon.dashboard, path: "/"},
+    {label:"Dashboard",        icon: Icon.dashboard, path: "/StorekeeperDashboard"},
     {label:"Inventory",        icon: Icon.browse,    path: "/inventory"},
     {label:"QR Scanner",       icon: Icon.qr_scanner, path: "/scanner"},
     {label:"Material Outputs", icon: Icon.trash,      path: "/InputOutput"},

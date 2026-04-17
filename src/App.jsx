@@ -8,6 +8,8 @@ import './App.css';
 import CreateProjectModal from'./pages/CreateProjectModal';
 import InputOutput from './pages/inputOutput';
 import Maintenance from './pages/Maintenance';
+import { Rule } from 'postcss';
+import StorekeeperDashboard from'./pages/StorekeeperDashboard'
 function App() {
   return (
     <ThemeProvider>
@@ -18,6 +20,7 @@ function App() {
           <Route path="/MyProject"element={<MyProject/>}></Route>
         <Route path="/InputOutput"element={<InputOutput/>}/>
         <Route path="/Maintenance"element={<Maintenance/>}/>
+        <Route path="/StorekeeperDashboard"element={<StorekeeperDashboard/>}/>
        </Routes>
       </BrowserRouter>
     </ThemeProvider>

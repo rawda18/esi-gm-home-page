@@ -127,7 +127,7 @@ export default function StudentDashboard() {
           </p>
         </div>
         
-        {/* الجزء السفلي: المعلومات الإضافية */}
+        {/*  المعلومات الإضافية */}
         <div className="mt-0 pt-0  flex items-center justify-between">
           <span className="text-[9px] text-small-custom font-inter uppercase tracking-tight">
             {p.members} team member(s)

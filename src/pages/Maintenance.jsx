@@ -6,8 +6,8 @@ import Sidebare3 from '../components/Sidebare3';
 
 export default function Maintenance(){
   const stats = [
-    { label: "Needs Attention", value: 0,desc: "Materials requiring maintenance or damaged", icon:Icon.overdue,iconColor:"#FF6467",iconBg: "#FB2C3633",bgb:"#FB2C361A",scal:1.5 },
-    { label: "Upcoming (30 days)",value: 0,desc: "Scheduled maintenance in the next 30 days", icon:Icon.bk,iconColor:"#FDC700",iconBg: "var(--bk)",bgb:"#F0B1001A",scal:1.2}
+    { label: "Needs Attention", value: 0,desc: "Materials requiring maintenance or damaged", icon:Icon.overdue,iconColor:"#FF6467",iconBg: "#FB2C3633",bgb:"#f8555d33",scal:1.5 },
+    { label: "Upcoming (30 days)",value: 0,desc: "Scheduled maintenance in the next 30 days", icon:Icon.bk,iconColor:"#FDC700",iconBg: "var(--bk)",bgb:"#f0b00027",scal:1.2}
   ]
 
   return(
@@ -44,19 +44,16 @@ export default function Maintenance(){
                 </div>
               </div>
              ))}
-
             </div>
             {/* Maintenance History */}
-            <div className="rounded-xl border-1 border-[#1E40AF4D] bg-[var(--card)]">
+            <div className="rounded-xl border border-[] bg-[var(--card)]">
             {/* Table header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-[#1E40AF4D]">
               <div className="flex items-center gap-2">
                 <span className="text-title-custom mt-[-8px]">{Icon.maintenance}</span>
                 <h3 className="text-base font-semibold text-title-custom">Maintenance History</h3>
-              </div>
-              
+              </div>           
             </div>
- 
             {/* Table */}
             <div className="overflow-x-auto">
               <table className="w-full text-sm">

@@ -31,7 +31,7 @@ const statusStyles = {
   "Lost":              "bg-gray-200 text-gray-500",
 };
 
-export default function StorekeeperDashboard() {
+export default function StorekeeperDashboard({ onAddMaintenance }) {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [modal, setModal] = useState(null);
@@ -281,8 +281,9 @@ export default function StorekeeperDashboard() {
             onClose={() => setShowAddMaintenance(false)}
             materials={materials}
             onSubmit={(form) => {
-              const item = materials.find(m => m.name === form.material);
-              if (item) handleStatusChange(item.id, "Under Maintenance");
+            const item = materials.find(m => m.name === form.material);
+            if (item) handleStatusChange(item.id, "Under Maintenance");
+            onAddMaintenance(form);
             }}
           />
         )}

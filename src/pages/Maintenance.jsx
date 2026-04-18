@@ -4,7 +4,7 @@ import ThemeToggel from '../components/ThemToggel';
 import { ArrowRight } from 'lucide-react';
 import Sidebare3 from '../components/Sidebare3';
 
-export default function Maintenance(){
+export default function Maintenance({ maintenanceList = [] }){
   const stats = [
     { label: "Needs Attention", value: 0,desc: "Materials requiring maintenance or damaged", icon:Icon.overdue,iconColor:"#FF6467",iconBg: "#FB2C3633",bgb:"#f8555d33",scal:1.5 },
     { label: "Upcoming (30 days)",value: 0,desc: "Scheduled maintenance in the next 30 days", icon:Icon.bk,iconColor:"#FDC700",iconBg: "var(--bk)",bgb:"#f0b00027",scal:1.2}
@@ -69,6 +69,34 @@ export default function Maintenance(){
                     ))}
                   </tr>
                 </thead>
+                <tbody>
+  {maintenanceList.length === 0 ? (
+    <tr>
+      <td colSpan={6} className="px-4 py-8 text-center text-small-custom text-xs">
+        No maintenance records yet.
+      </td>
+    </tr>
+  ) : (
+    maintenanceList.map((row) => (
+      <tr key={row.id} className="border-t border-[#1E40AF4D] hover:bg-black/5 transition-all">
+        <td className="px-4 py-3 text-title-custom text-sm font-medium">{row.material}</td>
+        <td className="px-4 py-3 text-small-custom text-sm">—</td>
+        <td className="px-4 py-3 text-small-custom text-sm">{row.date}</td>
+        <td className="px-4 py-3 text-small-custom text-sm">—</td>
+        <td className="px-4 py-3 text-small-custom text-sm">{row.issue}</td>
+        <td className="px-4 py-3">
+          <span className={`text-xs px-2 py-1 rounded-full font-medium
+            ${row.priority === "Critical" ? "bg-red-100 text-red-600" :
+              row.priority === "High"     ? "bg-orange-100 text-orange-600" :
+              row.priority === "Medium"   ? "bg-yellow-100 text-yellow-600" :
+                                            "bg-green-100 text-green-600"}`}>
+            {row.priority}
+          </span>
+        </td>
+      </tr>
+    ))
+  )}
+</tbody>
               </table>
             </div>
           </div>

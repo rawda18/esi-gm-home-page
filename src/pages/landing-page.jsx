@@ -16,10 +16,10 @@ export default function LandingPage () {
   return (
     <div className="  dynamic-bg text-foreground transition-colors duration-300 text-white font-sans selection:bg-blue-500/30 w-full ">
       {/* --- NAVBAR --- */}
-      <nav className=" navbar navbar-expand-lg  border-bottom border-secondary bg-background px-4 py-3">
-        <div className="container-fluid  mx-auto px-[80px] w-full flex items-center justify-between ">
+      <nav className=" border-b border-[var(--card-border)] bg-background px-4 py-3">
+        <div className="container-fluid  mx-auto px-[40px] w-full flex items-center justify-between  ">
           {/* Logo + Title */}
-          <div className="d-flex align-items-center gap-2">
+          <div className="flex items-center gap-2 ">
             <div
               className="rounded d-flex align-items-center justify-content-center"
               style={{ width: "48px", height: "48px" }}
@@ -28,11 +28,11 @@ export default function LandingPage () {
                 src="/logo.png"
                 alt="logo"
                 style={{ width: "40px", height: "40px" }} 
-                className="rounded-circle w-auto " 
+                className="rounded-[16px] w-auto " 
               />
             </div>
 
-            <div className="d-flex flex-column items-start" style={{frontFamily:"inter"}}>
+            <div className="flex flex-col items-start" style={{frontFamily:"inter"}}>
               <span className=" text-title-custom " >ESI-GM</span>
               <small className="text-secondary text-small-custom" style={{ fontSize: '10px' ,width:'200px'}}>
                 École Supérieure d'Informatique <br/>
@@ -54,7 +54,7 @@ export default function LandingPage () {
           {/* Links + Buttons */}
           <div className="hidden lg:flex items-center justify-between w-full" id="navbarContent">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0"></ul>
-            <div className="d-flex gap-2">
+            <div className="flex items-center gap-2 ">
               <ThemeToggle />
               <button className= "w-[90px] h-10 px-0 py-2 text-title-custom ">Login</button>
               <button className="w-[107px] h-[40px] px-[24px] py-[8px] btn-register opacity-1 flex items-center justify-center text-white font-normal text-[14px]  transition-all active:scale-95 rounded-[12px] " style={{ fontFamily: "Inter, sans-serif" }}>Register</button>

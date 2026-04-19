@@ -74,25 +74,25 @@ export default function InputOutput(){
       </div>
        {/* Page header */}
       <div className="w-full mt-[45px] border-t border-solid border-[var(--card-border)]"></div>
-      <div className="w-full mb-5">
+      <div className="w-full mb-4">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-3">
           <div className="whitespace-nowrap">
              <h2 className="text-title-custom text-[30px] mt-3">Material Outputs</h2>
-             <p className="text-small-custom text-sm mt-[-9px]">Track all materials leaving and entering laboratories</p>
+             <p className="text-small-custom text-sm mt-[-4px]">Track all materials leaving and entering laboratories</p>
           </div>
           <div className="flex justify-between">
-            <button className="ml-auto flex justify-between items-center text-white right-8 bg-[#6366F1] rounded-3 gap-2 px-2 py-1 text-sm hover:bg-[#5558e3] transition-all whitespace-nowrap font-medium">
+            <button className="ml-auto flex justify-between items-center text-white right-8 bg-[#6366F1] rounded-[10px] gap-2 px-2 py-1 text-sm hover:bg-[#5558e3] transition-all whitespace-nowrap font-medium">
               {Icon.export}Export CSV
             </button>
           </div>
         </div>
            {/* Stat Cards */}
-       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-5">
   {stats.map((s) => (
     <div key={s.label} className="rounded-2xl p-3 glass-card border-1 border-[#1E40AF4D] min-h-[90px]">
       <div className="flex items-center justify-between mb-3">
         <p className="text-xs text-small-custom whitespace-nowrap">{s.label}</p>
-        <div className="p-1.5 rounded-lg mt-[-11px]" style={{ background: s.iconBg, color: s.iconColor }}>
+        <div className="p-1.5 rounded-lg " style={{ background: s.iconBg, color: s.iconColor }}>
           {s.icon}
         </div>
       </div>

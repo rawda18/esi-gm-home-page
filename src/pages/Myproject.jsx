@@ -22,7 +22,7 @@ const INIT_PROJECTS = [
 ];
 
 const ProjectCard = ({ project }) => (
-  <div className="flex flex-col gap-2 transition-all hover:scale-[1.01] bg-[var(--card)] border border-[var(--card-border)] p-6 rounded-xl w-full">
+  <div className="flex flex-col gap-2 transition-all hover:scale-[1.01] bg-[var(--card)] border-1 border-[var(--card-border)] p-6 rounded-xl w-full">
     <div className="flex items-start justify-between">
       <div
         className="w-8 h-8 rounded-xl flex items-center justify-center bg-[var(--icon-bg)]"
@@ -41,7 +41,7 @@ const ProjectCard = ({ project }) => (
       <p className="text-sm text-small-custom mt-1">{project.desc}</p>
     </div>
 
-    <div className="border-t border-[var(--card-border)] mt-1" />
+    <div className="border-1 border-[var(--card-border)] mt-1" />
 
     <div className="flex items-center justify-between">
       <div className="flex items-center text-small-custom text-sm gap-2">

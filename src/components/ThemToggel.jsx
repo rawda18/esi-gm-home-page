@@ -10,7 +10,7 @@ function ThemeToggle() {
             onClick={toggleTheme}
             aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             title={isDark ? 'Light Mode' : 'Dark Mode'}
-            className="relative flex items-center justify-center w-10 h-10 rounded-lg border border-border bg-card/30 hover:bg-card/80 transition-all duration-300 overflow-hidden group shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-card/50"
+            className="relative flex items-center justify-center w-10 h-10 rounded-lg border border-[var(--card-border)] bg-card/30 hover:bg-card/80 transition-all duration-300 overflow-hidden group shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-card/50"
         >
             {/* Sun Icon (Visible in Light Mode) */}
             <Sun

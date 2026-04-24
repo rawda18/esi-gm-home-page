@@ -69,7 +69,7 @@ export default function CreateProjectModal({ onClose, onCreate }) {
             placeholder="e.g., IoT Weather Station"
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
-            className="rounded-xl px-4 py-2.5 text-sm outline-none transition-all"
+            className="rounded-xl px-4 py-2.5 text-sm outline-none transition-all text-title-custom"
             style={{
               background: "var(--small-custom)",
               border: "1px solid var(--card-border, rgba(255,255,255,0.1))",
@@ -86,7 +86,7 @@ export default function CreateProjectModal({ onClose, onCreate }) {
         {/* Description */}
         <div className="flex flex-col gap-1">
           <label
-            className="text-sm font-medium"
+            className="text-sm font-medium text-title-custom"
             style={{ color: "var(--text-titles)" }}
           >
             Description
@@ -96,7 +96,7 @@ export default function CreateProjectModal({ onClose, onCreate }) {
             rows={4}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="rounded-xl px-4 py-2.5 text-sm outline-none resize-none transition-all"
+            className="rounded-xl px-4 py-2.5 text-sm outline-none resize-none transition-all text-title-custom"
             style={{
               background: "var(--small-custom)",
               border: "1px solid var(--card-border, rgba(255,255,255,0.1))",
@@ -113,20 +113,20 @@ export default function CreateProjectModal({ onClose, onCreate }) {
         </div>
 
         {/* Team Members */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 ">
           <label
-            className="text-sm font-medium"
+            className="text-sm font-medium "
             style={{ color: "var(--text-titles)" }}
           >
             Team Members
           </label>
 
           {/* Existing members list */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 ">
             {members.map((m, i) => (
               <div
                 key={i}
-                className="rounded-xl px-4 py-3"
+                className="rounded-xl px-4 py-3  "
                 style={{
                   background: "var(--small-custom)",
                   border:
@@ -134,13 +134,13 @@ export default function CreateProjectModal({ onClose, onCreate }) {
                 }}
               >
                 <p
-                  className="text-sm font-medium"
+                  className="text-sm font-medium text-title-custom"
                   style={{ color: "var(--text-titles)" }}
                 >
                   {m.name}
                 </p>
                 <p
-                  className="text-xs"
+                  className="text-xs "
                   style={{ color: "var(--small-custom, #64748b)" }}
                 >
                   {m.email}

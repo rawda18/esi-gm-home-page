@@ -1,24 +1,53 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AlertCircle, Calendar, Wrench } from 'lucide-react';
 import ThemeToggel from '../components/ThemToggel.jsx';
 import Sidebare3 from '../components/Sidebare3.jsx';
+import { fetchMaintenance, fetchMaintenanceStats } from '../Api/maintenance.api.js';
 
-export default function Maintenance({ maintenanceList = [] }) {
-  const stats = [
+export default function Maintenance() {
+  const [maintenanceList, setMaintenanceList] = useState([]);
+  const [stats, setStats] = useState([
     {
       label: 'Needs Attention',
       value: 0,
       desc: 'Materials requiring maintenance or damaged',
       icon: <AlertCircle size={24} className="text-red-500" />,
+      bgb:"#f8555d33"
     },
     {
       label: 'Upcoming (30 days)',
       value: 0,
       desc: 'Scheduled maintenance in the next 30 days',
       icon: <Calendar size={24} className="text-yellow-500" />,
+      bgb:"#f0b00027"
     },
-  ];
+  ]);
 
+  // دالة تحميل البيانات من الـ Fake API
+  const loadData = () => {
+    const data = fetchMaintenance();
+    const statsData = fetchMaintenanceStats();
+
+    setMaintenanceList(data);
+    setStats([
+      { ...stats[0], value: statsData.needsAttention },
+      { ...stats[1], value: statsData.upcoming30 },
+    ]);
+  };
+  useEffect(() => {
+  loadData();
+}, []);
+  useEffect(() => {
+  const handleStorageChange = (e) => {
+    if (e.key === 'maintenance-updated') {
+      loadData();
+    }
+  };
+  window.addEventListener('storage', handleStorageChange);
+  return () => window.removeEventListener('storage', handleStorageChange);
+}, []); // ما عندناش فلاتر، مرة وحدة فتحميل الصفحة
+
+  // الباقي JSX كما هو دون تغيير (نفس الـ return)
   return (
     <div className="flex dynamic-bg transition-colors duration-300" style={{ fontFamily: 'Inter' }}>
       <Sidebare3 activeLabel="Maintenance" />
@@ -43,7 +72,7 @@ export default function Maintenance({ maintenanceList = [] }) {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="rounded-2xl p-4 border-1 border-[#1E40AF4D] bg-gray-50 dark:bg-gray-800"
+                className="rounded-2xl p-4 border-1 border-[#1E40AF4D] "style={{ background: s.bgb}}
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg">{s.icon}</div>
@@ -91,8 +120,8 @@ export default function Maintenance({ maintenanceList = [] }) {
                   {maintenanceList.length === 0 ? (
                     <tr>
                       <td colSpan={6} className="px-4 py-8 text-center text-small-custom text-xs">
-                        No maintenance records yet.
-                      </td>
+                        Loading...
+                       </td>
                     </tr>
                   ) : (
                     maintenanceList.map((row) => (
@@ -100,23 +129,23 @@ export default function Maintenance({ maintenanceList = [] }) {
                         <td className="px-4 py-3 text-title-custom text-sm font-medium">
                           {row.material}
                         </td>
-                        <td className="px-4 py-3 text-small-custom text-sm">—</td>
-                        <td className="px-4 py-3 text-small-custom text-sm">{row.date}</td>
-                        <td className="px-4 py-3 text-small-custom text-sm">—</td>
-                        <td className="px-4 py-3 text-small-custom text-sm">{row.issue}</td>
+                        <td className="px-4 py-3 text-small-custom text-sm">{row.category}</td>
+                        <td className="px-4 py-3 text-small-custom text-sm">{row.last_maintenance || '—'}</td>
+                        <td className="px-4 py-3 text-small-custom text-sm">{row.next_maintenance}</td>
+                        <td className="px-4 py-3 text-small-custom text-sm">{row.type}</td>
                         <td className="px-4 py-3">
                           <span
                             className={`text-xs px-2 py-1 rounded-full font-medium ${
-                              row.priority === 'Critical'
+                              row.status === 'Critical'
                                 ? 'bg-red-100 text-red-600'
-                                : row.priority === 'High'
-                                  ? 'bg-orange-100 text-orange-600'
-                                  : row.priority === 'Medium'
-                                    ? 'bg-yellow-100 text-yellow-600'
-                                    : 'bg-green-100 text-green-600'
+                                : row.status === 'High'
+                                ? 'bg-orange-100 text-orange-600'
+                                : row.status === 'Medium'
+                                ? 'bg-yellow-100 text-yellow-600'
+                                : 'bg-green-100 text-green-600'
                             }`}
                           >
-                            {row.priority}
+                            {row.status}
                           </span>
                         </td>
                       </tr>

@@ -8,7 +8,7 @@
   :root {
     --background: #ffffff;
     --foreground: #020817;
-    --card: #d4d6d8;
+    --card: #f0f2f4;
     --card-foreground: #0f172a;
     --primary: #1d4ed8;
     --primary-foreground: #ffffff;
@@ -39,6 +39,7 @@
     --butt-filter: #eeeff0;
     --bk: #f5eac9;
     --br: #e2e8f0;
+    --caIn:#F8FAFC;
   }
 
   .dark {
@@ -80,6 +81,7 @@
     --butt-filter: #1e293b;
     --bk: #3d351d;
     --br: #1e293b;
+    --caIn:#121825;
   }
 }
 

@@ -1,35 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Filter,
   Search,
   ChevronDown,
   Download,
   Package,
-  CheckCircle,
-  AlertCircle,
-  Trash2,
 } from 'lucide-react';
 import ThemeToggel from '../components/ThemToggel';
 import Sidebare2 from '../components/Sidebare2';
-
+import { fetchOutputs, fetchStats } from "../Api/inputOutput.api.js";
+import { Icon } from '../components/Icon';
 export default function InputOutput() {
   const [labFilter, setLabFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [search, setSearch] = useState('');
   const [openDropdown, setOpenDropdown] = useState(null);
-
-  const tableData = [
-    {
-      material: 'Arduino Uno R3',
-      desc: 'Microcontrollers • Qty: 3',
-      lab: 'Lab A - Electronics',
-      student: 'Sarah Student. IoT Weather Station ',
-      issued: '2026-03-18 John Keeper',
-      returned: new Date().toLocaleDateString('fr-FR'),
-      condition: 'Excellent',
-      status: 'Borrowed',
-    },
-  ];
+  
+  // هادول الجدد
+  const [outputs, setOutputs] = useState([]);
+  const [stats, setStats] = useState([
+    { label: 'Total Outputs', value: 0,icon:Icon.browse, iconColor: '#6366F1', iconBg: 'rgba(99,102,241,0.15)' },
+    { label: 'Borrowed', value: 0,icon:Icon.browse, iconColor: '#6366F1', iconBg: 'rgba(99,102,241,0.15)' },
+    { label: 'Returned', value: 0,icon:Icon.returned, iconColor: '#05DF72', iconBg: 'rgba(99,102,241,0.15)' },
+    { label: 'Overdue', value: 0, icon:Icon.overdue, iconColor: '#FF6467', iconBg: 'rgba(99,102,241,0.15)' },
+    { label: 'Transferred', value: 0, icon:Icon.trash, iconColor: '#C27AFF', iconBg: 'rgba(99,102,241,0.15)' },
+  ]);
 
   const conditionColors = {
     Excellent: { color: '#05DF72', bg: 'rgba(5,223,114,0.12)' },
@@ -44,14 +39,6 @@ export default function InputOutput() {
     Transferred: { color: '#C27AFF', bg: 'rgba(194,122,255,0.12)' },
   };
 
-  const stats = [
-    { label: 'Total Outputs', value: 11, iconColor: '#6366F1', iconBg: 'rgba(99,102,241,0.15)' },
-    { label: 'Borrowed', value: 5, iconColor: '#6366F1', iconBg: 'rgba(99,102,241,0.15)' },
-    { label: 'Returned', value: 3, iconColor: '#05DF72', iconBg: 'rgba(99,102,241,0.15)' },
-    { label: 'Overdue', value: 7, iconColor: '#FF6467', iconBg: 'rgba(99,102,241,0.15)' },
-    { label: 'Transferred', value: 6, iconColor: '#C27AFF', iconBg: 'rgba(99,102,241,0.15)' },
-  ];
-
   const filters = [
     {
       key: 'lab',
@@ -64,21 +51,36 @@ export default function InputOutput() {
       key: 'status',
       label: 'Status',
       value: statusFilter,
-      options: ['Borrowed', 'Returned', 'Overdue'],
+      options: ['Borrowed', 'Returned', 'Overdue', 'Transferred'],
       set: setStatusFilter,
     },
   ];
 
-  const filtered = tableData.filter((row) => {
-    const matchLab = labFilter ? row.lab.includes(labFilter) : true;
-    const matchStatus = statusFilter ? row.status === statusFilter : true;
-    const matchSearch = search
-      ? [row.material, row.student, row.lab].some((f) =>
-          f.toLowerCase().includes(search.toLowerCase()),
-        )
-      : true;
-    return matchLab && matchStatus && matchSearch;
-  });
+  // دالة تجلب البيانات (بدل التصفية المحلية)
+  const loadData = async () => { // زدنا async هنا
+    const filterParams = {};
+    if (labFilter) filterParams.lab = labFilter;
+    if (statusFilter) filterParams.status = statusFilter;
+    if (search) filterParams.search = search;
+
+    // لازم await باش السيت يستنى الداتا تجي من ملف الـ API
+    const filteredData = await fetchOutputs(filterParams);
+    const statsData = await fetchStats();
+
+    setOutputs(filteredData);
+    setStats(prev => prev.map(s => {
+      if (s.label === 'Total Outputs') return { ...s, value: statsData.total };
+      if (s.label === 'Borrowed') return { ...s, value: statsData.borrowed };
+      if (s.label === 'Returned') return { ...s, value: statsData.returned };
+      if (s.label === 'Overdue') return { ...s, value: statsData.overdue };
+      if (s.label === 'Transferred') return { ...s, value: statsData.transferred };
+      return s;
+    }));
+  };
+
+  useEffect(() => {
+    loadData();
+  }, [labFilter, statusFilter, search]);
 
   function Badge({ label, map }) {
     const s = map[label] || { color: '#aaa', bg: 'rgba(170,170,170,0.12)' };
@@ -119,7 +121,7 @@ export default function InputOutput() {
             </div>
           </div>
 
-          {/* Stat Cards */}
+          {/* Stat Cards - stats state */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-5">
             {stats.map((s) => (
               <div
@@ -142,7 +144,7 @@ export default function InputOutput() {
             ))}
           </div>
 
-          {/* Filters */}
+          {/* Filters - nafsou */}
           <div className="rounded-xl border-1 border-[#1E40AF4D] bg-[var(--card)] p-4 mb-4">
             <div className="flex items-center gap-2 mb-3">
               <Filter size={16} className="text-small-custom mt-[-5px]" />
@@ -206,7 +208,7 @@ export default function InputOutput() {
             </div>
           </div>
 
-          {/* Table */}
+          {/* Table - outputs state (n'est plus filtered) */}
           <div className="rounded-xl border-1 border-[#1E40AF4D] overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[700px]">
@@ -231,37 +233,25 @@ export default function InputOutput() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filtered.length === 0 ? (
+                  {(outputs?.length === 0 || !outputs) ? (
                     <tr>
-                      <td
-                        colSpan={7}
-                        className="px-3 py-8 text-center text-small-custom text-[10px]"
-                      >
+                      <td colSpan={7} className="px-3 py-8 text-center text-small-custom text-[10px]">
                         No results found.
                       </td>
                     </tr>
                   ) : (
-                    filtered.map((row, i) => (
-                      <tr
-                        key={i}
-                        className="border-b border-[#1E40AF4D] last:border-0 bg-[var(--card)]"
-                      >
+                    outputs && Array.isArray(outputs) && outputs.map((row, i) => (
+                      <tr key={i} className="border-b border-[#1E40AF4D] last:border-0 bg-[var(--card)]">
                         <td className="px-4 py-3">
                           <div className="font-medium text-title-custom">{row.material}</div>
                           <div className="text-xs text-small-custom">{row.desc}</div>
                         </td>
                         <td className="px-3 py-3 text-title-custom">{row.lab}</td>
-                        <td className="px-3 py-3 text-title-custom text-xs max-w-[130px]">
-                          {row.student}
-                        </td>
+                        <td className="px-3 py-3 text-title-custom text-xs max-w-[130px]">{row.student}</td>
                         <td className="px-3 py-3 text-title-custom text-xs">{row.issued}</td>
                         <td className="px-3.5 py-3 text-title-custom text-xs">{row.returned}</td>
-                        <td className="px-3 py-3">
-                          <Badge label={row.condition} map={conditionColors} />
-                        </td>
-                        <td className="px-3 py-3">
-                          <Badge label={row.status} map={statusColors} />
-                        </td>
+                        <td className="px-3 py-3"><Badge label={row.condition} map={conditionColors} /></td>
+                        <td className="px-3 py-3"><Badge label={row.status} map={statusColors} /></td>
                       </tr>
                     ))
                   )}
